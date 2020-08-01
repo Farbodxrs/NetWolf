@@ -18,6 +18,6 @@ func main() {
 
 	n := node.New(name, ip, dpn, dir, flag.Args())
 
-	fmt.Printf("%+v", n)
+	fmt.Printf("%+v", *n)
 
 }
