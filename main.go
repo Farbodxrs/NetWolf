@@ -1,13 +1,15 @@
 package main
 
 import (
+	"./config"
 	"./node"
 	"flag"
 	"fmt"
 )
 
-func main() {
 
+func main() {
+	config.Init()
 	name := flag.String("name", "", "new node name")
 
 	ip := flag.String("ip", "", "node ip")
@@ -18,6 +20,11 @@ func main() {
 
 	n := node.New(name, ip, dpn, dir, flag.Args())
 
+	go n.DiscoveryClientBegin()
+	 n.DiscoveryServerBegin()
+
+
 	fmt.Printf("%+v", *n)
 
 }
+

@@ -3,6 +3,7 @@ package node
 import (
 	"strconv"
 	"strings"
+	"sync"
 )
 
 type Node struct {
@@ -10,6 +11,7 @@ type Node struct {
 	Cluster      []Address
 	Directory    string
 	TransferPort int
+	Mutex        sync.Mutex
 }
 type Address struct {
 	Name          string
